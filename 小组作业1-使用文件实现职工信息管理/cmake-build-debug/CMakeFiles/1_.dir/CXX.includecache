@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wangzilong/Desktop/Study/Assignment/数据库/Database-Assignment/小组作业1-使用文件实现职工信息管理/Declaration.h
+bits/stdc++.h
+-
+
+/Users/wangzilong/Desktop/Study/Assignment/数据库/Database-Assignment/小组作业1-使用文件实现职工信息管理/EmployeeTable.cpp
+EmployeeTable.h
+/Users/wangzilong/Desktop/Study/Assignment/数据库/Database-Assignment/小组作业1-使用文件实现职工信息管理/EmployeeTable.h
+
+/Users/wangzilong/Desktop/Study/Assignment/数据库/Database-Assignment/小组作业1-使用文件实现职工信息管理/EmployeeTable.h
+Declaration.h
+/Users/wangzilong/Desktop/Study/Assignment/数据库/Database-Assignment/小组作业1-使用文件实现职工信息管理/Declaration.h
+
+/Users/wangzilong/Desktop/Study/Assignment/数据库/Database-Assignment/小组作业1-使用文件实现职工信息管理/main.cpp
+bits/stdc++.h
+-
+utility
+-
+

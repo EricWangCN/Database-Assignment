@@ -8,12 +8,14 @@
 //Declaration of struct employee.
 
 enum sex{M,F};
-struct sEmployee {
+
+class sEmployee {
+public:
     std::string sName;
     int iID;
     std::string sPosition;
     sex Sex;
-    sEmployee(std::string name, const int& ID, std::string position, sex S) : sName(std::move(name)), iID(ID), sPosition(std::move(position)), Sex(S){}
+    sEmployee(std::string name, const int& ID, std::string position, sex S) : sName(name), iID(ID), sPosition(position), Sex(S){}
 };
 
 

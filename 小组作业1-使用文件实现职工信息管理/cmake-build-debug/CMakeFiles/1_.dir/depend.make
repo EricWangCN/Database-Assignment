@@ -5,5 +5,7 @@ CMakeFiles/1_.dir/EmployeeTable.cpp.o: ../Declaration.h
 CMakeFiles/1_.dir/EmployeeTable.cpp.o: ../EmployeeTable.cpp
 CMakeFiles/1_.dir/EmployeeTable.cpp.o: ../EmployeeTable.h
 
+CMakeFiles/1_.dir/main.cpp.o: ../Declaration.h
+CMakeFiles/1_.dir/main.cpp.o: ../EmployeeTable.h
 CMakeFiles/1_.dir/main.cpp.o: ../main.cpp
 

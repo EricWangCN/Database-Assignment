@@ -5,23 +5,16 @@
 #include "EmployeeTable.h"
 
 bool EmployeeTable::readFile() {
-    string sTmp;
-    file.open("EmployeeInfo.csv", ios::out | ios::in);
+    string sName, sPos, sTmp;
+    sex sSex;
+    int iID;
+    file.open("EmployeeInfo.txt", ios::in);
     while (!file.eof()) {
-        file >> sTmp;
-        int iPos1, iPos2, iLen = sTmp.length();
-        bool flag = false;
-        for (int i = 0; i < iLen; ++i) {
-            if (sTmp[i] == ',') {
-                if (!flag) {
-                    iPos1 = i;
-                    flag = true;
-                } else {
-                    iPos2 = i;
-                }
-            }
-        }
-        Employees.emplace_back(sTmp.substr(0, iPos1), stoi(sTmp.substr(iPos1, iPos2)), sTmp.substr(iPos2, iLen));
+        file >> sName >> iID >> sPos >> sTmp;
+        if (sTmp == "F") sSex = F;
+        else sSex = M;
+        sEmployee tmp = sEmployee(sName, iID, sPos, sSex);
+        Employees.push_back(tmp);
     }
     file.close();
 
@@ -36,8 +29,8 @@ int EmployeeTable::search(const int &id) {
     return -1;
 }
 
-bool EmployeeTable::addEmployee(const sEmployee e) {
-    if (!search(e.iID)) {
+bool EmployeeTable::addEmployee(sEmployee e) {
+    if (search(e.iID) == -1) {
         Employees.push_back(e);
         return true;
     } else {
@@ -55,7 +48,7 @@ void EmployeeTable::print() {
 bool EmployeeTable::changeInfo(const int &id, string position) {
     int iPos = search(id);
     if (iPos >= 0) {
-        Employees[iPos].sPosition = std::move(position);
+        Employees[iPos].sPosition = position;
         return true;
     } else // Cannot find him/her
         return false;
@@ -74,4 +67,18 @@ bool EmployeeTable::deleteEmployee(const int &id) {
         return true;
     } else
         return false;
+}
+
+void EmployeeTable::writeFile() {
+    fstream ile;
+    int iLen = Employees.size();
+    string sTmp;
+    ile.open("EmployeeInfo.txt", ios::out);
+    if (!ile.is_open()) cout<<"error\n";
+    for (int i = 0; i < iLen; ++i) {
+        if (Employees[i].Sex == F) sTmp = "F";
+        else sTmp = "M";
+        ile << Employees[i].sName << ' ' << Employees[i].iID << ' ' << Employees[i].sPosition << ' ' << sTmp << '\n';
+    }
+    ile.close();
 }
